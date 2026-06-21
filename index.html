@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iscriviti alla newsletter - Accademia Massaggi Olistici</title>
+
+<!-- Tailwind via CDN: ok per prototipi/demo. Per produzione conviene installarlo via npm e fare il build (purge CSS). -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  /* Qui ci finiscono solo le cose che Tailwind non copre comodamente da solo (es. focus ring custom, animazioni). */
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+</style>
+</head>
+
+<body class="bg-white text-slate-900">
+
+  <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <!-- COLONNA SINISTRA: copy + form -->
+      <div>
+
+        <!-- Badge in alto, come nell'esempio -->
+        <span class="inline-flex items-center gap-2 bg-rose-100 text-rose-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+          Vuoi vivere di massaggio olistico, ma non sai da dove iniziare?
+          <button type="button" aria-label="Chiudi" class="text-rose-500 hover:text-rose-700">✕</button>
+        </span>
+
+        <!-- Headline -->
+        <h1 class="text-4xl md:text-5xl font-black leading-tight tracking-tight uppercase mb-6">
+          Iscriviti alla nostra newsletter
+        </h1>
+
+        <!-- Sottotitolo -->
+        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+          Per tutti gli <strong class="text-slate-900">aspiranti operatori olistici, professionisti del benessere e appassionati di massaggio</strong>
+          che vogliono imparare tecniche vere e costruire una professione, non solo un hobby.
+          Ogni <strong class="text-slate-900">giovedì alle 9:00</strong> ricevi consigli pratici sul mondo del massaggio olistico e della professione.
+        </p>
+
+        <!-- Lista benefit -->
+        <div class="mb-10">
+          <h2 class="text-xl font-bold mb-4">Cosa trovi nella newsletter del giovedì?</h2>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-500 mt-0.5">✓</span>
+              <span><strong>Tecniche e protocolli</strong> spiegati passo passo</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-500 mt-0.5">✓</span>
+              <span><strong>Consigli pratici</strong> per chi vuole iniziare la professione</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-emerald-500 mt-0.5">✓</span>
+              <span><strong>Casi studio</strong> ed esperienze dirette dei nostri operatori</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FORM -->
+        <form id="optin-form" novalidate class="space-y-4">
+
+          <div>
+            <label for="nome" class="sr-only">Nome</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Nome"
+              required
+              class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-400"
+            >
+            <p class="error-msg hidden text-sm text-red-600 mt-1"></p>
+          </div>
+
+          <div>
+            <label for="email" class="sr-only">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+              class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-400"
+            >
+            <p class="error-msg hidden text-sm text-red-600 mt-1"></p>
+          </div>
+
+          <div class="space-y-2 text-sm text-slate-600">
+            <label class="flex items-start gap-2">
+              <input type="checkbox" id="privacy" name="privacy" required class="mt-1">
+              <span>Accetto la <a href="#" class="underline">Privacy Policy</a> che si trova in fondo alla pagina*</span>
+            </label>
+            <p class="error-msg hidden text-sm text-red-600"></p>
+
+            <label class="flex items-start gap-2">
+              <input type="checkbox" id="marketing" name="marketing" class="mt-1">
+              <span>Accetto di ricevere aggiornamenti con contenuti esclusivi e offerte speciali</span>
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-lime-300 hover:bg-lime-400 transition-colors font-bold text-slate-900 py-4 rounded-lg uppercase tracking-wide"
+          >
+            Voglio iscrivermi!
+          </button>
+
+          <!-- Messaggio di esito (successo/errore generico) -->
+          <p id="form-status" class="text-sm mt-2 hidden"></p>
+        </form>
+
+      </div>
+
+      <!-- COLONNA DESTRA: visual / immagine -->
+      <div class="flex justify-center">
+        <div class="w-full max-w-sm aspect-[3/4] rounded-3xl bg-gradient-to-br from-rose-100 to-orange-100 flex items-center justify-center text-center p-8">
+          <p class="text-slate-500 text-sm">
+            [ Spazio immagine ]<br>
+            Qui andrà la foto/mockup<br>che deciderà la cliente
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+<script src="optin-page.js"></script>
+
+</body>
+</html>
