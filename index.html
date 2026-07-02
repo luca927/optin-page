@@ -52,16 +52,16 @@
 
 <body class="min-h-screen flex flex-col justify-between relative">
 
-  <!-- IL FIORE COME SFONDO: attivo SOLO SU SMARTPHONE (hidden md:block lo spegne su PC) -->
+  <!-- IL FIORE COME SFONDO: attivo SOLO SU SMARTPHONE (md:hidden lo spegne su PC) -->
   <div class="absolute inset-0 bg-cover bg-center opacity-10 block md:hidden pointer-events-none" 
        style="background-image: url('images/Girasole Normale.png');">
   </div>
 
-  <!-- Container principale con padding e z-10 per stare sopra lo sfondo mobile -->
+  <!-- Container principale con la griglia a due colonne su PC -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10">
 
-    <!-- COLONNA SINISTRA -->
-    <div class="flex flex-col gap-6 order-1 md:order-none">
+    <!-- COLONNA SINISTRA: Contenuti e Form -->
+    <div class="flex flex-col gap-6">
 
       <!-- Blocco Introduttivo -->
       <div class="flex flex-col gap-4">
@@ -77,7 +77,7 @@
 
         <!-- Testo unificato -->
         <p class="text-base leading-relaxed font-medium">
-          <span>Per tutte le persone che sentono di vivere troppo nella testa, fanno fatica a rallentare e desiderano ritrovare fiducia nel proprio sentire, ogni settimana riceverai strumenti pratici, riflessioni ed esperienze che puoi portare nella tua vita di tutti i giorni.</span>
+          <strong>Per tutte le persone che sentono di vivere troppo nella testa,</strong> fanno fatica a rallentare e desiderano ritrovare fiducia nel proprio sentire, <strong>ogni settimana</strong> riceverai strumenti pratici, riflessioni ed esperienze che puoi portare nella tua vita di tutti i giorni.
         </p>
       </div>
 
@@ -155,8 +155,8 @@
 
     </div>
 
-    <!-- COLONNA DESTRA: Immagine visibile in colonna SOLO SU PC (hidden md:flex) -->
-    <div class="w-full hidden md:flex items-center justify-center order-2 md:order-none">
+    <!-- COLONNA DESTRA: Il girasole si posiziona elegantemente a fianco delle scritte su PC -->
+    <div class="w-full hidden md:flex items-center justify-center">
       <img
         src="images/Girasole Normale.png"
         alt="Girasole al tramonto"
@@ -172,8 +172,6 @@
     © Aurora Accademia Olistica &nbsp;|&nbsp;
     <a href="#" class="underline hover:text-stone-600">Privacy Policy</a>
   </footer>
-
-  </div>
 
   <script src="optin-page.js"></script>
 
