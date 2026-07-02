@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" class="h-full">
+<html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,129 +50,111 @@
 </style>
 </head>
 
-<body class="h-full md:overflow-hidden">
+<body class="min-h-screen flex flex-col justify-between">
 
-  <!-- Layout: occupa tutta l'altezza schermo, flessibile su mobile, bloccato su desktop -->
-  <div class="h-full md:h-screen flex flex-col justify-between relative">
+  <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-    <!-- Immagine di sfondo SOLO SU MOBILE per risparmiare spazio verticale visivo -->
-    <div class="absolute inset-0 bg-cover bg-center opacity-10 block md:hidden pointer-events-none" 
-         style="background-image: url('images/Girasole Normale.png');">
-    </div>
+    <div class="flex flex-col gap-6 order-1 md:order-none">
 
-    <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center overflow-hidden z-10">
-
-      <!-- COLONNA SINISTRA (Contenitore principale ottimizzato) -->
-      <div class="flex flex-col gap-2 md:gap-1.5 h-full justify-center py-2">
-
-        <!-- Badge -->
-        <span class="badge inline-block text-xs font-semibold px-3 py-1 rounded-full w-fit">
+      <div class="flex flex-col gap-4">
+        <span class="badge inline-block text-xs font-semibold px-4 py-1.5 rounded-full w-fit">
           Per chi sente di vivere troppo nella testa 🌿
         </span>
 
-        <!-- Headline -->
-        <h1 class="font-title text-3xl md:text-4xl leading-tight" style="color: var(--terracotta);">
+        <h1 class="font-title text-4xl md:text-5xl leading-tight" style="color: var(--terracotta);">
           Ritorna al tuo Corpo.
         </h1>
 
-        <!-- Testo unificato -->
-        <p class="text-xs md:text-sm leading-relaxed font-medium">
-          Per tutte le persone che sentono di vivere troppo nella testa, fanno fatica a rallentare e desiderano ritrovare fiducia nel proprio sentire, ogni settimana riceverai strumenti pratici, riflessioni ed esperienze che puoi portare nella tua vita di tutti i giorni.
+        <p class="text-base leading-relaxed font-medium">
+          <span>Per tutte le persone che sentono di vivere troppo nella testa, fanno fatica a rallentare e desiderano ritrovare fiducia nel proprio sentire, ogni settimana riceverai strumenti pratici, riflessioni ed esperienze che puoi portare nella tua vita di tutti i giorni.</span>
         </p>
+      </div>
 
-        <!-- Benefit list -->
+      <div>
+        <h2 class="font-semibold text-base mb-3" style="color: var(--verde);">Cosa troverai nella newsletter?</h2>
+        <ul class="space-y-2 text-sm text-stone-700">
+          <li class="flex items-start gap-2.5"><span>🌿</span><span>Piccole pratiche di consapevolezza da inserire nella tua quotidianità.</span></li>
+          <li class="flex items-start gap-2.5"><span>🌿</span><span>Riflessioni sul legame tra emozioni, corpo e sistema nervoso.</span></li>
+          <li class="flex items-start gap-2.5"><span>🌿</span><span>Strumenti concreti per imparare ad ascoltarti senza giudicarti.</span></li>
+          <li class="flex items-start gap-2.5"><span>🌿</span><span>Dietro le quinte del nostro lavoro.</span></li>
+          <li class="flex items-start gap-2.5"><span>🌿</span><span>Novità, eventi e percorsi riservati agli iscritti.</span></li>
+        </ul>
+      </div>
+
+      <form id="optin-form" novalidate class="flex flex-col gap-3.5">
+
         <div>
-          <h2 class="font-semibold text-xs md:text-sm mb-1" style="color: var(--verde);">Cosa troverai nella newsletter?</h2>
-          <ul class="space-y-0.5 text-[11px] md:text-xs text-stone-700">
-            <li class="flex items-start gap-2"><span>🌿</span><span>Piccole pratiche di consapevolezza da inserire nella tua quotidianità.</span></li>
-            <li class="flex items-start gap-2"><span>🌿</span><span>Riflessioni sul legame tra emozioni, corpo e sistema nervoso.</span></li>
-            <li class="flex items-start gap-2"><span>🌿</span><span>Strumenti concreti per imparare ad ascoltarti senza giudicarti.</span></li>
-            <li class="flex items-start gap-2"><span>🌿</span><span>Dietro le quinte del nostro lavoro.</span></li>
-            <li class="flex items-start gap-2"><span>🌿</span><span>Novità, eventi e percorsi riservati agli iscritti.</span></li>
-          </ul>
+          <input type="text" id="nome" name="nome" placeholder="Nome" required
+            class="w-full border border-stone-300 rounded-xl px-4 py-3 bg-white text-stone-800 placeholder-stone-400 text-sm">
+          <p class="error-msg hidden text-xs mt-1"></p>
         </div>
 
-        <!-- FORM -->
-        <form id="optin-form" novalidate class="flex flex-col gap-1.5">
-
-          <div>
-            <input type="text" id="nome" name="nome" placeholder="Nome" required
-              class="w-full border border-stone-300 rounded-lg px-3 py-1.5 bg-white/90 text-stone-800 placeholder-stone-400 text-sm">
-            <p class="error-msg hidden text-xs mt-0.5"></p>
-          </div>
-
-          <div>
-            <input type="email" id="email" name="email" placeholder="Email" required
-              class="w-full border border-stone-300 rounded-lg px-3 py-1.5 bg-white/90 text-stone-800 placeholder-stone-400 text-sm">
-            <p class="error-msg hidden text-xs mt-0.5"></p>
-          </div>
-
-          <div>
-            <select id="genere" name="genere"
-              class="w-full border border-stone-300 rounded-lg px-3 py-1.5 bg-white/90 text-stone-600 appearance-none text-sm">
-              <option value="" disabled selected>Genere</option>
-              <option value="femminile">Femminile</option>
-              <option value="maschile">Maschile</option>
-              <option value="non_binario">Non binario</option>
-              <option value="non_condivido">Preferisco non condividerlo</option>
-            </select>
-          </div>
-
-          <div class="space-y-1 text-[11px] md:text-xs text-stone-600">
-            <label class="flex items-start gap-2 cursor-pointer">
-              <input type="checkbox" id="privacy" name="privacy" required class="mt-0.5">
-              <span>Accetto la <a href="#" class="underline" style="color:var(--terracotta)">Privacy Policy</a> che si trova in fondo alla pagina*</span>
-            </label>
-            <p class="error-msg hidden text-xs"></p>
-            <label class="flex items-start gap-2 cursor-pointer">
-              <input type="checkbox" id="marketing" name="marketing" class="mt-0.5">
-              <span>Accetto di ricevere aggiornamenti con contenuti esclusivi e offerte speciali</span>
-            </label>
-          </div>
-
-          <button type="submit" class="btn-cta w-full font-bold py-2 rounded-lg uppercase tracking-wide text-xs">
-            Sì, voglio tornare ad ascoltarmi 🌿
-          </button>
-
-        </form>
-
-        <!-- Riquadro regalo -->
-        <div class="rounded-xl px-4 py-2 md:py-2.5 bg-white/80 md:bg-[var(--crema)]" style="border: 1px solid var(--crema);">
-          <p class="text-[11px] md:text-xs font-semibold uppercase tracking-wide mb-0.5" style="color: var(--arancio);">Come ringraziamento riceverai subito:</p>
-          <h3 class="font-title text-sm md:text-base mb-0.5" style="color: var(--terracotta);">
-            "Il tuo primo dialogo con il corpo"
-          </h3>
-          <p class="text-[11px] md:text-xs leading-relaxed text-stone-600">
-            Una pratica guidata dedicata a <strong>collo, spalle e cervicale</strong>, per sciogliere le tensioni accumulate e ritrovare maggior leggerezza, esplorando il legame tra questa zona e le emozioni che tratteniamo.
-          </p>
+        <div>
+          <input type="email" id="email" name="email" placeholder="Email" required
+            class="w-full border border-stone-300 rounded-xl px-4 py-3 bg-white text-stone-800 placeholder-stone-400 text-sm">
+          <p class="error-msg hidden text-xs mt-1"></p>
         </div>
 
-        <!-- Logo in fondo: h-20 su mobile per non sforare, h-28 su desktop -->
-        <div class="pt-1 flex justify-start">
-          <img src="images/Aurora-Accademia-Olistica_C.png" alt="Aurora Accademia Olistica" class="h-20 md:h-28 w-auto object-contain">
+        <div>
+          <select id="genere" name="genere"
+            class="w-full border border-stone-300 rounded-xl px-4 py-3 bg-white text-stone-600 appearance-none text-sm">
+            <option value="" disabled selected>Genere</option>
+            <option value="femminile">Femminile</option>
+            <option value="maschile">Maschile</option>
+            <option value="non_binario">Non binario</option>
+            <option value="non_condivido">Preferisco non condividerlo</option>
+          </select>
         </div>
 
+        <div class="space-y-2 text-sm text-stone-600">
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input type="checkbox" id="privacy" name="privacy" required class="mt-1">
+            <span>Accetto la <a href="#" class="underline" style="color:var(--terracotta)">Privacy Policy</a> che si trova in fondo alla pagina*</span>
+          </label>
+          <p class="error-msg hidden text-xs"></p>
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input type="checkbox" id="marketing" name="marketing" class="mt-1">
+            <span>Accetto di ricevere aggiornamenti con contenuti esclusivi e offerte speciali</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-cta w-full font-bold py-3.5 rounded-xl uppercase tracking-wide text-xs">
+          Sì, voglio tornare ad ascoltarmi 🌿
+        </button>
+
+      </form>
+
+      <div class="rounded-2xl p-5" style="background-color: var(--crema);">
+        <p class="text-xs font-semibold uppercase tracking-wide mb-1" style="color: var(--arancio);">Come ringraziamento riceverai subito:</p>
+        <h3 class="font-title text-lg md:text-xl mb-1.5" style="color: var(--terracotta);">
+          "Il tuo primo dialogo con il corpo"
+        </h3>
+        <p class="text-sm leading-relaxed text-stone-600">
+          Una pratica guidata dedicata a <strong>collo, spalle e cervicale</strong>, per sciogliere le tensioni accumulate e ritrovare maggior leggerezza, esplorando il legame tra questa zona e le emozioni che tratteniamo.
+        </p>
       </div>
 
-      <!-- COLONNA DESTRA: immagine (Nascondi su mobile, mostra su desktop) -->
-      <div class="h-full hidden md:flex items-center justify-center py-3">
-        <img
-          src="images/Girasole Normale.png"
-          alt="Girasole al tramonto"
-          class="w-full rounded-2xl object-cover shadow-lg"
-          style="max-height: calc(100vh - 2rem);"
-        >
+      <div class="pt-4 flex justify-start">
+        <img src="images/Aurora-Accademia-Olistica_C.png" alt="Aurora Accademia Olistica" class="h-36 w-auto object-contain">
       </div>
 
-    </main>
+    </div>
 
-    <!-- Footer minimale -->
-    <footer class="text-center text-[10px] md:text-xs text-stone-400 py-2 z-10">
-      © Aurora Accademia Olistica &nbsp;|&nbsp;
-      <a href="#" class="underline hover:text-stone-600">Privacy Policy</a>
-    </footer>
+    <div class="w-full flex items-center justify-center order-2 md:order-none">
+      <img
+        src="images/Girasole Normale.png"
+        alt="Girasole al tramonto"
+        class="w-full max-w-md md:max-w-none rounded-3xl object-cover shadow-lg"
+        style="max-height: 650px;"
+      >
+    </div>
 
-  </div>
+  </main>
+
+  <footer class="text-center text-xs text-stone-400 py-6 border-t border-stone-100 bg-white/50">
+    © Aurora Accademia Olistica &nbsp;|&nbsp;
+    <a href="#" class="underline hover:text-stone-600">Privacy Policy</a>
+  </footer>
 
   <script src="optin-page.js"></script>
 
