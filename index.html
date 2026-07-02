@@ -19,6 +19,11 @@
     --terracotta: #e96b5d;
   }
 
+  html, body {
+    height: 100%;
+    overflow: hidden; /* niente scroll */
+  }
+
   body {
     font-family: 'Montserrat', system-ui, sans-serif;
     background-color: #fffaf6;
@@ -43,7 +48,7 @@
   input:focus, select:focus {
     outline: none;
     border-color: var(--arancio);
-    box-shadow: 0 0 0 3px rgba(255,144,90,0.2);
+    box-shadow: 0 0 0 2px rgba(255,144,90,0.2);
   }
 
   .error-msg { color: var(--terracotta); }
@@ -52,89 +57,59 @@
 
 <body>
 
-  <!-- HEADER: logo più grande, meno spazio sotto -->
-  <header class="w-full px-6 pt-6 pb-0 flex justify-center">
-    <img src="images/Aurora-Accademia-Olistica_C.png" alt="Aurora Accademia Olistica" class="h-56 md:h-72 w-auto object-contain">
-  </header>
+  <!-- Layout: occupa tutta l'altezza schermo, due colonne -->
+  <div class="h-screen flex flex-col">
 
-  <main class="max-w-6xl mx-auto px-6 py-4 md:py-8">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
+    <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-3 grid grid-cols-2 gap-10 items-center overflow-hidden">
 
-      <!-- COLONNA SINISTRA -->
-      <div>
+     <!-- COLONNA SINISTRA (Margini compattati per far spazio al logo grande) -->
+      <div class="flex flex-col gap-1.5 h-full justify-center">
 
-        <span class="badge inline-block text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+        <!-- Badge -->
+        <span class="badge inline-block text-xs font-semibold px-3 py-1 rounded-full w-fit">
           Per chi sente di vivere troppo nella testa 🌿
         </span>
 
-        <h1 class="font-title text-5xl md:text-6xl leading-tight mb-5" style="color: var(--terracotta);">
+        <!-- Headline -->
+        <h1 class="font-title text-4xl leading-tight" style="color: var(--terracotta);">
           Ritorna al tuo Corpo.
         </h1>
 
-        <p class="text-base md:text-lg leading-relaxed mb-4 font-medium">
-          Per tutte le persone che sentono di vivere troppo nella testa, fanno fatica a rallentare e desiderano ritrovare fiducia nel proprio sentire.
-        </p>
-        <p class="text-base leading-relaxed mb-8 text-stone-600">
-          Ogni settimana riceverai strumenti pratici, riflessioni ed esperienze che puoi portare nella tua vita di tutti i giorni.
+        <!-- Testo unificato -->
+        <p class="text-sm leading-relaxed font-medium">
+          Per tutte le persone che sentono di vivere troppo nella testa, fanno fatica a rallentare e desiderano ritrovare fiducia nel proprio sentire, ogni settimana riceverai strumenti pratici, riflessioni ed esperienze che puoi portare nella tua vita di tutti i giorni.
         </p>
 
-        <div class="mb-8">
-          <h2 class="font-semibold text-lg mb-4" style="color: var(--verde);">Cosa troverai nella newsletter?</h2>
-          <ul class="space-y-3 text-base text-stone-700">
-            <li class="flex items-start gap-3">
-              <span class="mt-0.5 text-lg">🌿</span>
-              <span>Piccole pratiche di consapevolezza da inserire nella tua quotidianità.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-0.5 text-lg">🌿</span>
-              <span>Riflessioni sul legame tra emozioni, corpo e sistema nervoso.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-0.5 text-lg">🌿</span>
-              <span>Strumenti concreti per imparare ad ascoltarti senza giudicarti.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-0.5 text-lg">🌿</span>
-              <span>Dietro le quinte del nostro lavoro.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-0.5 text-lg">🌿</span>
-              <span>Novità, eventi e percorsi riservati agli iscritti.</span>
-            </li>
+        <!-- Benefit list -->
+        <div>
+          <h2 class="font-semibold text-sm mb-1" style="color: var(--verde);">Cosa troverai nella newsletter?</h2>
+          <ul class="space-y-0.5 text-xs text-stone-700">
+            <li class="flex items-start gap-2"><span>🌿</span><span>Piccole pratiche di consapevolezza da inserire nella tua quotidianità.</span></li>
+            <li class="flex items-start gap-2"><span>🌿</span><span>Riflessioni sul legame tra emozioni, corpo e sistema nervoso.</span></li>
+            <li class="flex items-start gap-2"><span>🌿</span><span>Strumenti concreti per imparare ad ascoltarti senza giudicarti.</span></li>
+            <li class="flex items-start gap-2"><span>🌿</span><span>Dietro le quinte del nostro lavoro.</span></li>
+            <li class="flex items-start gap-2"><span>🌿</span><span>Novità, eventi e percorsi riservati agli iscritti.</span></li>
           </ul>
         </div>
 
-        <div class="rounded-2xl p-5 mb-8" style="background-color: var(--crema);">
-          <p class="text-sm font-semibold uppercase tracking-wide mb-2" style="color: var(--arancio);">Come ringraziamento riceverai subito:</p>
-          <h3 class="font-title text-2xl md:text-3xl mb-3" style="color: var(--terracotta);">
-            "Il tuo primo dialogo con il corpo"
-          </h3>
-          <p class="text-sm leading-relaxed text-stone-600">
-            Una pratica guidata dedicata a <strong>collo, spalle e cervicale</strong>, pensata per aiutarti a sciogliere le tensioni accumulate e ritrovare maggiore leggerezza.
-            Durante il video esploreremo anche il legame che questa zona del corpo può avere con diverse emozioni che tratteniamo, per iniziare ad ascoltare il loro messaggio, senza giudicarle.
-          </p>
-        </div>
-
-        <form id="optin-form" novalidate class="space-y-4">
+        <!-- FORM -->
+        <form id="optin-form" novalidate class="flex flex-col gap-1.5">
 
           <div>
-            <label for="nome" class="sr-only">Nome</label>
             <input type="text" id="nome" name="nome" placeholder="Nome" required
-              class="w-full border border-stone-300 rounded-xl px-4 py-3 bg-white text-stone-800 placeholder-stone-400">
-            <p class="error-msg hidden text-sm mt-1"></p>
+              class="w-full border border-stone-300 rounded-lg px-3 py-1.5 bg-white text-stone-800 placeholder-stone-400 text-sm">
+            <p class="error-msg hidden text-xs mt-0.5"></p>
           </div>
 
           <div>
-            <label for="email" class="sr-only">Email</label>
             <input type="email" id="email" name="email" placeholder="Email" required
-              class="w-full border border-stone-300 rounded-xl px-4 py-3 bg-white text-stone-800 placeholder-stone-400">
-            <p class="error-msg hidden text-sm mt-1"></p>
+              class="w-full border border-stone-300 rounded-lg px-3 py-1.5 bg-white text-stone-800 placeholder-stone-400 text-sm">
+            <p class="error-msg hidden text-xs mt-0.5"></p>
           </div>
 
           <div>
-            <label for="genere" class="sr-only">Genere</label>
             <select id="genere" name="genere"
-              class="w-full border border-stone-300 rounded-xl px-4 py-3 bg-white text-stone-600 appearance-none">
+              class="w-full border border-stone-300 rounded-lg px-3 py-1.5 bg-white text-stone-600 appearance-none text-sm">
               <option value="" disabled selected>Genere</option>
               <option value="femminile">Femminile</option>
               <option value="maschile">Maschile</option>
@@ -143,44 +118,61 @@
             </select>
           </div>
 
-          <div class="space-y-2 text-sm text-stone-600">
+          <div class="space-y-0.5 text-xs text-stone-600">
             <label class="flex items-start gap-2 cursor-pointer">
-              <input type="checkbox" id="privacy" name="privacy" required class="mt-1">
+              <input type="checkbox" id="privacy" name="privacy" required class="mt-0.5">
               <span>Accetto la <a href="#" class="underline" style="color:var(--terracotta)">Privacy Policy</a> che si trova in fondo alla pagina*</span>
             </label>
-            <p class="error-msg hidden text-sm"></p>
-
+            <p class="error-msg hidden text-xs"></p>
             <label class="flex items-start gap-2 cursor-pointer">
-              <input type="checkbox" id="marketing" name="marketing" class="mt-1">
+              <input type="checkbox" id="marketing" name="marketing" class="mt-0.5">
               <span>Accetto di ricevere aggiornamenti con contenuti esclusivi e offerte speciali</span>
             </label>
           </div>
 
-          <button type="submit" class="btn-cta w-full font-bold py-4 rounded-xl uppercase tracking-wide text-sm">
+          <button type="submit" class="btn-cta w-full font-bold py-2 rounded-lg uppercase tracking-wide text-xs">
             Sì, voglio tornare ad ascoltarmi 🌿
           </button>
 
         </form>
 
+        <!-- Riquadro regalo -->
+        <div class="rounded-xl px-4 py-2.5" style="background-color: var(--crema);">
+          <p class="text-xs font-semibold uppercase tracking-wide mb-0.5" style="color: var(--arancio);">Come ringraziamento riceverai subito:</p>
+          <h3 class="font-title text-base mb-0.5" style="color: var(--terracotta);">
+            "Il tuo primo dialogo con il corpo"
+          </h3>
+          <p class="text-xs leading-relaxed text-stone-600">
+            Una pratica guidata dedicata a <strong>collo, spalle e cervicale</strong>, per sciogliere le tensioni accumulate e ritrovare maior leggerezza, esplorando il legame tra questa zona e le emozioni che tratteniamo.
+          </p>
+        </div>
+
+        <!-- Logo in fondo: Portato a h-28 per una maggiore visibilità -->
+        <div class="pt-1 flex justify-start">
+          <img src="images/Aurora-Accademia-Olistica_C.png" alt="Aurora Accademia Olistica" class="h-28 w-auto object-contain">
+        </div>
+
       </div>
 
       <!-- COLONNA DESTRA: immagine -->
-      <div class="flex justify-center items-center">
+      <div class="h-full flex items-center justify-center py-3">
         <img
           src="images/Girasole Normale.png"
           alt="Girasole al tramonto"
-          class="w-full max-w-md rounded-3xl object-cover shadow-lg"
-          style="max-height: 600px;"
+          class="w-full rounded-2xl object-cover shadow-lg"
+          style="max-height: calc(100vh - 2rem);"
         >
       </div>
 
-    </div>
-  </main>
+    </main>
 
-  <footer class="text-center text-xs text-stone-400 py-8 px-4">
-    © Aurora Accademia Olistica &nbsp;|&nbsp;
-    <a href="#" class="underline hover:text-stone-600">Privacy Policy</a>
-  </footer>
+    <!-- Footer minimale -->
+    <footer class="text-center text-xs text-stone-400 py-2">
+      © Aurora Accademia Olistica &nbsp;|&nbsp;
+      <a href="#" class="underline hover:text-stone-600">Privacy Policy</a>
+    </footer>
+
+  </div>
 
   <script src="optin-page.js"></script>
 
