@@ -50,26 +50,38 @@
 </style>
 </head>
 
-<body class="min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between relative">
 
-  <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+  <!-- IL FIORE COME SFONDO: attivo SOLO SU SMARTPHONE (hidden md:block lo spegne su PC) -->
+  <div class="absolute inset-0 bg-cover bg-center opacity-10 block md:hidden pointer-events-none" 
+       style="background-image: url('images/Girasole Normale.png');">
+  </div>
 
+  <!-- Container principale con padding e z-10 per stare sopra lo sfondo mobile -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10">
+
+    <!-- COLONNA SINISTRA -->
     <div class="flex flex-col gap-6 order-1 md:order-none">
 
+      <!-- Blocco Introduttivo -->
       <div class="flex flex-col gap-4">
+        <!-- Badge -->
         <span class="badge inline-block text-xs font-semibold px-4 py-1.5 rounded-full w-fit">
           Per chi sente di vivere troppo nella testa 🌿
         </span>
 
+        <!-- Headline -->
         <h1 class="font-title text-4xl md:text-5xl leading-tight" style="color: var(--terracotta);">
           Ritorna al tuo Corpo.
         </h1>
 
+        <!-- Testo unificato -->
         <p class="text-base leading-relaxed font-medium">
           <span>Per tutte le persone che sentono di vivere troppo nella testa, fanno fatica a rallentare e desiderano ritrovare fiducia nel proprio sentire, ogni settimana riceverai strumenti pratici, riflessioni ed esperienze che puoi portare nella tua vita di tutti i giorni.</span>
         </p>
       </div>
 
+      <!-- Benefit list -->
       <div>
         <h2 class="font-semibold text-base mb-3" style="color: var(--verde);">Cosa troverai nella newsletter?</h2>
         <ul class="space-y-2 text-sm text-stone-700">
@@ -81,23 +93,24 @@
         </ul>
       </div>
 
+      <!-- FORM -->
       <form id="optin-form" novalidate class="flex flex-col gap-3.5">
 
         <div>
           <input type="text" id="nome" name="nome" placeholder="Nome" required
-            class="w-full border border-stone-300 rounded-xl px-4 py-3 bg-white text-stone-800 placeholder-stone-400 text-sm">
+            class="w-full border border-stone-300 rounded-xl px-4 py-3 bg-white/90 text-stone-800 placeholder-stone-400 text-sm">
           <p class="error-msg hidden text-xs mt-1"></p>
         </div>
 
         <div>
           <input type="email" id="email" name="email" placeholder="Email" required
-            class="w-full border border-stone-300 rounded-xl px-4 py-3 bg-white text-stone-800 placeholder-stone-400 text-sm">
+            class="w-full border border-stone-300 rounded-xl px-4 py-3 bg-white/90 text-stone-800 placeholder-stone-400 text-sm">
           <p class="error-msg hidden text-xs mt-1"></p>
         </div>
 
         <div>
           <select id="genere" name="genere"
-            class="w-full border border-stone-300 rounded-xl px-4 py-3 bg-white text-stone-600 appearance-none text-sm">
+            class="w-full border border-stone-300 rounded-xl px-4 py-3 bg-white/90 text-stone-600 appearance-none text-sm">
             <option value="" disabled selected>Genere</option>
             <option value="femminile">Femminile</option>
             <option value="maschile">Maschile</option>
@@ -124,7 +137,8 @@
 
       </form>
 
-      <div class="rounded-2xl p-5" style="background-color: var(--crema);">
+      <!-- Riquadro regalo -->
+      <div class="rounded-2xl p-5 bg-white/80 md:bg-[var(--crema)]" style="border: 1px solid var(--crema);">
         <p class="text-xs font-semibold uppercase tracking-wide mb-1" style="color: var(--arancio);">Come ringraziamento riceverai subito:</p>
         <h3 class="font-title text-lg md:text-xl mb-1.5" style="color: var(--terracotta);">
           "Il tuo primo dialogo con il corpo"
@@ -134,13 +148,15 @@
         </p>
       </div>
 
+      <!-- Logo in fondo: h-28 su smartphone e h-36 su PC -->
       <div class="pt-4 flex justify-start">
-        <img src="images/Aurora-Accademia-Olistica_C.png" alt="Aurora Accademia Olistica" class="h-36 w-auto object-contain">
+        <img src="images/Aurora-Accademia-Olistica_C.png" alt="Aurora Accademia Olistica" class="h-28 md:h-36 w-auto object-contain">
       </div>
 
     </div>
 
-    <div class="w-full flex items-center justify-center order-2 md:order-none">
+    <!-- COLONNA DESTRA: Immagine visibile in colonna SOLO SU PC (hidden md:flex) -->
+    <div class="w-full hidden md:flex items-center justify-center order-2 md:order-none">
       <img
         src="images/Girasole Normale.png"
         alt="Girasole al tramonto"
@@ -151,10 +167,13 @@
 
   </main>
 
-  <footer class="text-center text-xs text-stone-400 py-6 border-t border-stone-100 bg-white/50">
+  <!-- Footer minimale sempre in primo piano -->
+  <footer class="text-center text-xs text-stone-400 py-6 border-t border-stone-100 bg-white/50 z-10">
     © Aurora Accademia Olistica &nbsp;|&nbsp;
     <a href="#" class="underline hover:text-stone-600">Privacy Policy</a>
   </footer>
+
+  </div>
 
   <script src="optin-page.js"></script>
 
