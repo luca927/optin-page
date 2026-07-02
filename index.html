@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="h-full">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,11 +17,6 @@
     --arancio:    #ff905a;
     --crema:      #ffe3cb;
     --terracotta: #e96b5d;
-  }
-
-  html, body {
-    height: 100%;
-    overflow: hidden; /* niente scroll */
   }
 
   body {
@@ -55,15 +50,20 @@
 </style>
 </head>
 
-<body>
+<body class="h-full md:overflow-hidden">
 
-  <!-- Layout: occupa tutta l'altezza schermo, due colonne -->
-  <div class="h-screen flex flex-col">
+  <!-- Layout: occupa tutta l'altezza schermo, flessibile su mobile, bloccato su desktop -->
+  <div class="h-full md:h-screen flex flex-col justify-between relative">
 
-    <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-3 grid grid-cols-2 gap-10 items-center overflow-hidden">
+    <!-- Immagine di sfondo SOLO SU MOBILE per risparmiare spazio verticale visivo -->
+    <div class="absolute inset-0 bg-cover bg-center opacity-10 block md:hidden pointer-events-none" 
+         style="background-image: url('images/Girasole Normale.png');">
+    </div>
 
-     <!-- COLONNA SINISTRA (Margini compattati per far spazio al logo grande) -->
-      <div class="flex flex-col gap-1.5 h-full justify-center">
+    <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center overflow-hidden z-10">
+
+      <!-- COLONNA SINISTRA (Contenitore principale ottimizzato) -->
+      <div class="flex flex-col gap-2 md:gap-1.5 h-full justify-center py-2">
 
         <!-- Badge -->
         <span class="badge inline-block text-xs font-semibold px-3 py-1 rounded-full w-fit">
@@ -71,19 +71,19 @@
         </span>
 
         <!-- Headline -->
-        <h1 class="font-title text-4xl leading-tight" style="color: var(--terracotta);">
+        <h1 class="font-title text-3xl md:text-4xl leading-tight" style="color: var(--terracotta);">
           Ritorna al tuo Corpo.
         </h1>
 
         <!-- Testo unificato -->
-        <p class="text-sm leading-relaxed font-medium">
+        <p class="text-xs md:text-sm leading-relaxed font-medium">
           Per tutte le persone che sentono di vivere troppo nella testa, fanno fatica a rallentare e desiderano ritrovare fiducia nel proprio sentire, ogni settimana riceverai strumenti pratici, riflessioni ed esperienze che puoi portare nella tua vita di tutti i giorni.
         </p>
 
         <!-- Benefit list -->
         <div>
-          <h2 class="font-semibold text-sm mb-1" style="color: var(--verde);">Cosa troverai nella newsletter?</h2>
-          <ul class="space-y-0.5 text-xs text-stone-700">
+          <h2 class="font-semibold text-xs md:text-sm mb-1" style="color: var(--verde);">Cosa troverai nella newsletter?</h2>
+          <ul class="space-y-0.5 text-[11px] md:text-xs text-stone-700">
             <li class="flex items-start gap-2"><span>🌿</span><span>Piccole pratiche di consapevolezza da inserire nella tua quotidianità.</span></li>
             <li class="flex items-start gap-2"><span>🌿</span><span>Riflessioni sul legame tra emozioni, corpo e sistema nervoso.</span></li>
             <li class="flex items-start gap-2"><span>🌿</span><span>Strumenti concreti per imparare ad ascoltarti senza giudicarti.</span></li>
@@ -97,19 +97,19 @@
 
           <div>
             <input type="text" id="nome" name="nome" placeholder="Nome" required
-              class="w-full border border-stone-300 rounded-lg px-3 py-1.5 bg-white text-stone-800 placeholder-stone-400 text-sm">
+              class="w-full border border-stone-300 rounded-lg px-3 py-1.5 bg-white/90 text-stone-800 placeholder-stone-400 text-sm">
             <p class="error-msg hidden text-xs mt-0.5"></p>
           </div>
 
           <div>
             <input type="email" id="email" name="email" placeholder="Email" required
-              class="w-full border border-stone-300 rounded-lg px-3 py-1.5 bg-white text-stone-800 placeholder-stone-400 text-sm">
+              class="w-full border border-stone-300 rounded-lg px-3 py-1.5 bg-white/90 text-stone-800 placeholder-stone-400 text-sm">
             <p class="error-msg hidden text-xs mt-0.5"></p>
           </div>
 
           <div>
             <select id="genere" name="genere"
-              class="w-full border border-stone-300 rounded-lg px-3 py-1.5 bg-white text-stone-600 appearance-none text-sm">
+              class="w-full border border-stone-300 rounded-lg px-3 py-1.5 bg-white/90 text-stone-600 appearance-none text-sm">
               <option value="" disabled selected>Genere</option>
               <option value="femminile">Femminile</option>
               <option value="maschile">Maschile</option>
@@ -118,7 +118,7 @@
             </select>
           </div>
 
-          <div class="space-y-0.5 text-xs text-stone-600">
+          <div class="space-y-1 text-[11px] md:text-xs text-stone-600">
             <label class="flex items-start gap-2 cursor-pointer">
               <input type="checkbox" id="privacy" name="privacy" required class="mt-0.5">
               <span>Accetto la <a href="#" class="underline" style="color:var(--terracotta)">Privacy Policy</a> che si trova in fondo alla pagina*</span>
@@ -137,25 +137,25 @@
         </form>
 
         <!-- Riquadro regalo -->
-        <div class="rounded-xl px-4 py-2.5" style="background-color: var(--crema);">
-          <p class="text-xs font-semibold uppercase tracking-wide mb-0.5" style="color: var(--arancio);">Come ringraziamento riceverai subito:</p>
-          <h3 class="font-title text-base mb-0.5" style="color: var(--terracotta);">
+        <div class="rounded-xl px-4 py-2 md:py-2.5 bg-white/80 md:bg-[var(--crema)]" style="border: 1px solid var(--crema);">
+          <p class="text-[11px] md:text-xs font-semibold uppercase tracking-wide mb-0.5" style="color: var(--arancio);">Come ringraziamento riceverai subito:</p>
+          <h3 class="font-title text-sm md:text-base mb-0.5" style="color: var(--terracotta);">
             "Il tuo primo dialogo con il corpo"
           </h3>
-          <p class="text-xs leading-relaxed text-stone-600">
-            Una pratica guidata dedicata a <strong>collo, spalle e cervicale</strong>, per sciogliere le tensioni accumulate e ritrovare maior leggerezza, esplorando il legame tra questa zona e le emozioni che tratteniamo.
+          <p class="text-[11px] md:text-xs leading-relaxed text-stone-600">
+            Una pratica guidata dedicata a <strong>collo, spalle e cervicale</strong>, per sciogliere le tensioni accumulate e ritrovare maggior leggerezza, esplorando il legame tra questa zona e le emozioni che tratteniamo.
           </p>
         </div>
 
-        <!-- Logo in fondo: Portato a h-28 per una maggiore visibilità -->
+        <!-- Logo in fondo: h-20 su mobile per non sforare, h-28 su desktop -->
         <div class="pt-1 flex justify-start">
-          <img src="images/Aurora-Accademia-Olistica_C.png" alt="Aurora Accademia Olistica" class="h-28 w-auto object-contain">
+          <img src="images/Aurora-Accademia-Olistica_C.png" alt="Aurora Accademia Olistica" class="h-20 md:h-28 w-auto object-contain">
         </div>
 
       </div>
 
-      <!-- COLONNA DESTRA: immagine -->
-      <div class="h-full flex items-center justify-center py-3">
+      <!-- COLONNA DESTRA: immagine (Nascondi su mobile, mostra su desktop) -->
+      <div class="h-full hidden md:flex items-center justify-center py-3">
         <img
           src="images/Girasole Normale.png"
           alt="Girasole al tramonto"
@@ -167,7 +167,7 @@
     </main>
 
     <!-- Footer minimale -->
-    <footer class="text-center text-xs text-stone-400 py-2">
+    <footer class="text-center text-[10px] md:text-xs text-stone-400 py-2 z-10">
       © Aurora Accademia Olistica &nbsp;|&nbsp;
       <a href="#" class="underline hover:text-stone-600">Privacy Policy</a>
     </footer>
