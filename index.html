@@ -55,12 +55,11 @@
   <div class="absolute inset-0 bg-cover bg-center opacity-10 block md:hidden pointer-events-none"
        style="background-image: url('images/Girasole_Normale.png');"></div>
 
-  <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-10 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10">
+  <main class="flex-1 max-w-7xl w-full mx-auto px-6 py-4 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10">
 
-    <!-- COLONNA SINISTRA -->
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-3 md:gap-6">
 
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-2 md:gap-4">
         <span class="badge inline-block text-xs font-semibold px-4 py-1.5 rounded-full w-fit">
           Per chi sente di vivere troppo nella testa 🌿
         </span>
@@ -75,15 +74,15 @@
       </div>
 
       <div>
-        <h2 class="font-semibold text-base mb-3" style="color: var(--verde);">Cosa troverai nella newsletter?</h2>
-        <ul class="space-y-2 text-sm text-stone-700">
+        <h2 class="font-semibold text-base mb-2" style="color: var(--verde);">Cosa troverai nella newsletter?</h2>
+        <ul class="space-y-1.5 md:space-y-2 text-sm text-stone-700">
           <li class="flex items-start gap-2.5"><span>🌿</span><span>Piccole pratiche di consapevolezza da inserire nella tua quotidianità.</span></li>
           <li class="flex items-start gap-2.5"><span>🌿</span><span>Riflessioni sul legame tra emozioni, corpo e sistema nervoso.</span></li>
           <li class="flex items-start gap-2.5"><span>🌿</span><span>Strumenti concreti per imparare ad ascoltarti senza giudicarti.</span></li>
         </ul>
       </div>
 
-      <form id="optin-form" novalidate class="flex flex-col gap-3.5">
+      <form id="optin-form" novalidate class="flex flex-col gap-2.5 md:gap-3.5">
 
         <div>
           <input type="text" id="nome" name="nome" placeholder="Nome" required
@@ -113,9 +112,9 @@
           <label class="flex items-start gap-2 cursor-pointer">
             <input type="checkbox" id="privacy" name="privacy" required class="mt-1 shrink-0">
             <span>Accetto la
-              <a href="privacy-policy.html" target="_blank" target="_blank" class="underline" style="color:var(--terracotta)">Privacy Policy</a>
+              <a href="privacy-policy.html" target="_blank" class="underline" style="color:var(--terracotta)">Privacy Policy</a>
               e la
-              <a href="cookie-policy.html" target="_blank" target="_blank" class="underline" style="color:var(--terracotta)">Cookie Policy</a>*
+              <a href="cookie-policy.html" target="_blank" class="underline" style="color:var(--terracotta)">Cookie Policy</a>*
             </span>
           </label>
           <p class="error-msg hidden text-xs"></p>
@@ -147,7 +146,6 @@
 
     </div>
 
-    <!-- COLONNA DESTRA: girasole solo su desktop -->
     <div class="w-full hidden md:flex items-center justify-center">
       <img src="images/Girasole Normale.png" alt="Girasole al tramonto"
            class="w-full max-w-md md:max-w-none rounded-3xl object-cover shadow-lg"
@@ -156,25 +154,21 @@
 
   </main>
 
-  <!-- FOOTER con i tre link legali -->
   <footer class="text-center text-xs text-stone-400 py-5 border-t border-stone-100 bg-white/50 z-10">
     <p class="mb-1">© Aurora Accademia Olistica – Aurora Abati</p>
     <p class="mb-2">Via della Gualderia, 11 - 10023 Chieri (TO) · P.IVA: 12830600016</p>
     <nav class="flex flex-wrap justify-center gap-x-4 gap-y-1">
       <a href="cookie-policy.html" target="_blank"
-         target="_blank"
          class="underline hover:text-stone-600 transition-colors">
         Cookie Policy
       </a>
       <span aria-hidden="true">·</span>
       <a href="privacy-policy.html" target="_blank"
-         target="_blank"
          class="underline hover:text-stone-600 transition-colors">
         Privacy Policy
       </a>
       <span aria-hidden="true">·</span>
       <a href="termini-e-condizioni.html" target="_blank"
-         target="_blank"
          class="underline hover:text-stone-600 transition-colors">
         Termini e condizioni
       </a>
