@@ -1,4 +1,5 @@
 const form = document.getElementById('optin-form');
+const MAILERLITE_ACTION_URL = 'https://assets.mailerlite.com/jsonp/2457687/forms/CxHLBG/subscribe';
 
 function showError(input, message) {
   const errorEl = input.parentElement.querySelector('.error-msg');
@@ -48,24 +49,20 @@ form.addEventListener('submit', function (e) {
 
   if (!valid) return;
 
-  // QUI andrà la chiamata reale al servizio di email marketing
-  // (es. ActiveCampaign, MailerLite, Brevo, Mailchimp...) tramite fetch() a un endpoint/API.
-  // Esempio indicativo (da adattare al provider scelto dalla cliente):
-  //
-  // fetch('https://endpoint-del-provider.com/api/subscribe', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({
-  //     nome: nome.value.trim(),
-  //     email: email.value.trim(),
-  //     marketing: document.getElementById('marketing').checked
-  //   })
-  // })
-  // .then(res => {
-  //   if (res.ok) window.location.href = 'grazie.html';
-  //   else showError(email, 'Qualcosa è andato storto, riprova.');
-  // });
 
-  // Per ora, finché non c'è un provider collegato, reindirizziamo direttamente.
+const formData = new URLSearchParams();
+formData.append('fields[name]', nome.value.trim());
+formData.append('fields[email]', email.value.trim());
+formData.append('ml-submit', '1');
+formData.append('anticsrf', 'true');
+
+fetch(MAILERLITE_ACTION_URL, {
+  method: 'POST',
+  mode: 'no-cors', // la risposta resta "opaca", non leggibile via JS
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  body: formData.toString()
+})
+.finally(() => {
   window.location.href = 'grazie.html';
 });
+})
