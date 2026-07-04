@@ -1,5 +1,6 @@
 const form = document.getElementById('optin-form');
-const MAILERLITE_ACTION_URL = 'https://assets.mailerlite.com/jsonp/2457687/forms/CxHLBG/subscribe';
+const MAILERLITE_FORM_ID = '191347024419882062';
+const MAILERLITE_ACCOUNT_ID = '2457687';
 
 function showError(input, message) {
   const errorEl = input.parentElement.querySelector('.error-msg');
@@ -22,12 +23,37 @@ function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+function generateGuid() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    const r = Math.random() * 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+
+function submitToMailerLite({ name, email, state }) {
+  const params = new URLSearchParams();
+  params.append('fields[name]', name);
+  params.append('fields[email]', email);
+  if (state) params.append('fields[state]', state);
+  params.append('ml-submit', '1');
+  params.append('anticsrf', 'true');
+  params.append('ajax', '1');
+  params.append('guid', generateGuid());
+  params.append('_', Date.now());
+
+  const url = `https://assets.mailerlite.com/jsonp/${MAILERLITE_ACCOUNT_ID}/forms/${MAILERLITE_FORM_ID}/subscribe?${params.toString()}`;
+
+  return fetch(url, { method: 'GET', mode: 'no-cors' });
+}
+
 form.addEventListener('submit', function (e) {
   e.preventDefault();
   clearErrors();
 
   const nome = document.getElementById('nome');
   const email = document.getElementById('email');
+  const genere = document.getElementById('genere');
   const privacy = document.getElementById('privacy');
 
   let valid = true;
@@ -49,20 +75,16 @@ form.addEventListener('submit', function (e) {
 
   if (!valid) return;
 
-
-const formData = new URLSearchParams();
-formData.append('fields[name]', nome.value.trim());
-formData.append('fields[email]', email.value.trim());
-formData.append('ml-submit', '1');
-formData.append('anticsrf', 'true');
-
-fetch(MAILERLITE_ACTION_URL, {
-  method: 'POST',
-  mode: 'no-cors', // la risposta resta "opaca", non leggibile via JS
-  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  body: formData.toString()
-})
-.finally(() => {
-  window.location.href = 'grazie.html';
+  submitToMailerLite({
+    name: nome.value.trim(),
+    email: email.value.trim(),
+    state: genere.value
+  })
+    .then(() => {
+      window.location.href = 'grazie.html';
+    })
+    .catch((err) => {
+      console.error('Errore iscrizione MailerLite:', err);
+      window.location.href = 'grazie.html';
+    });
 });
-})
