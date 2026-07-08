@@ -55,40 +55,42 @@
   <div class="absolute inset-0 bg-cover bg-center opacity-10 block md:hidden pointer-events-none"
        style="background-image: url('images/Girasole_Normale.png');"></div>
 
-  <main class="flex-1 max-w-7xl w-full mx-auto px-5 py-3 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center z-10">
+  <main class="flex-1 max-w-7xl w-full mx-auto px-5 py-3 md:py-16 flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-12 items-stretch z-10">
 
-    <div class="flex flex-col gap-4 md:gap-6">
+    <div class="flex flex-col gap-4 md:gap-6 order-1">
 
       <div class="flex flex-col gap-2 md:gap-4">
 
-        <h1 class="font-title text-2xl md:text-5xl leading-tight" style="color: var(--terracotta);">
-          Ritorna al tuo Corpo.
+        <h1 class="font-title text-2xl md:text-6xl leading-tight" style="color: var(--terracotta);">
+          <span>RICEVI SUBITO IL VIDEO GRATUITO:</span>
         </h1>
+        <h2 class="font-title text-1xl md:text-4xl leading-tight" style="color: var(--terracotta);">“Dove si blocca la tua rabbia?”</h2>
 
         <p class="text-sm md:text-base leading-relaxed font-medium">
-          <strong>Per tutte le persone che sentono di vivere troppo nella testa,</strong> fanno fatica a rallentare e desiderano ritrovare fiducia nel proprio sentire, <strong>ogni settimana</strong> riceverai strumenti pratici, riflessioni ed esperienze che puoi portare nella tua vita di tutti i giorni.
+          Per tutte le persone che tendono ad accumulare tensioni in <strong>collo, spalle e cervicale</strong> e sentono il bisogno di ritrovare più leggerezza nel corpo.
+          Con questa pratica guidata <strong>inizierai a sciogliere le tensioni</strong> accumulate in una delle zone che più risente dello <strong>stress</strong> e delle <strong>emozioni trattenute.</strong>
         </p>
       </div>
 
       <form id="optin-form" novalidate class="flex flex-col gap-2.5 md:gap-3.5">
 
         <div class="mt-1 md:mt-0">
-        <h2 class="font-semibold text-sm md:text-base mb-1" style="color: var(--verde);">Cosa troverai nella newsletter?</h2>
-        <ul class="space-y-1 text-xs md:text-sm text-stone-700">
-          <li class="flex items-start gap-2.5"><span>🌿</span><span>Piccole pratiche di consapevolezza da inserire nella tua quotidianità.</span></li>
-          <li class="flex items-start gap-2.5"><span>🌿</span><span>Riflessioni sul legame tra emozioni, corpo e sistema nervoso.</span></li>
-          <li class="flex items-start gap-2.5"><span>🌿</span><span>Strumenti concreti per imparare ad ascoltarti senza giudicarti.</span></li>
-        </ul>
-      </div>
+          <h2 class="font-semibold text-sm md:text-base mb-1" style="color: var(--verde);">Richiedendolo riceverai anche:</h2>
+          <ul class="space-y-1 text-xs md:text-sm text-stone-700">
+            <li class="flex items-start gap-2.5"><span>🌿</span><span>Una newsletter settimanale con piccole pratiche di consapevolezza da inserire nella tua quotidianità.</span></li>
+            <li class="flex items-start gap-2.5"><span>🌿</span><span>Riflessioni sul legame tra emozioni, corpo e sistema nervoso.</span></li>
+            <li class="flex items-start gap-2.5"><span>🌿</span><span>Strumenti concreti per imparare ad ascoltarti senza giudicarti.</span></li>
+          </ul>
+        </div>
 
         <div>
-          <input type="text" id="nome" name="nome" placeholder="Nome" required
+          <input type="text" id="nome" name="nome" placeholder="Scrivi qui solo il tuo nome" required
             class="w-full border border-stone-300 rounded-xl px-4 py-2.5 md:py-3 bg-white/90 text-stone-800 placeholder-stone-400 text-sm">
           <p class="error-msg hidden text-xs mt-1"></p>
         </div>
 
         <div>
-          <input type="email" id="email" name="email" placeholder="Email" required
+          <input type="email" id="email" name="email" placeholder="Email a cui inviare il video gratuito" required
             class="w-full border border-stone-300 rounded-xl px-4 py-2.5 md:py-3 bg-white/90 text-stone-800 placeholder-stone-400 text-sm">
           <p class="error-msg hidden text-xs mt-1"></p>
         </div>
@@ -118,30 +120,20 @@
         </div>
 
         <button type="submit" class="btn-cta w-full font-bold py-3 md:py-3.5 rounded-xl uppercase tracking-wide text-xs">
-          Sì, voglio tornare ad ascoltarmi 🌿
+          Sì, voglio ricevere il video gratuito 🌿
         </button>
 
       </form>
-
-      <div class="rounded-2xl p-4 md:p-5 bg-white/80 md:bg-[var(--crema)]" style="border: 1px solid var(--crema);">
-        <p class="text-[10px] md:text-xs font-semibold uppercase tracking-wide mb-0.5" style="color: var(--arancio);">Come ringraziamento riceverai subito:</p>
-        <h3 class="font-title text-base md:text-xl mb-1" style="color: var(--terracotta);">
-          "Il tuo primo dialogo con il corpo"
-        </h3>
-        <p class="text-xs md:text-sm leading-relaxed text-stone-600">
-          Una pratica guidata dedicata a <strong>collo, spalle e cervicale</strong>, per sciogliere le tensioni accumulate e ritrovare maggior leggerezza, esplorando il legame tra questa zona e le emozioni che tratteniamo.
-        </p>
-      </div>
 
       <div class="pt-2 flex justify-center w-full">
         <img src="images/Aurora-Accademia-Olistica_C.png" alt="Aurora Accademia Olistica" class="h-20 md:h-36 w-auto object-contain mx-auto">
       </div>
     </div>
 
-    <div class="w-full hidden md:flex items-center justify-center">
-      <img src="images/Girasole Normale.png" alt="Girasole al tramonto"
-           class="w-full max-w-md md:max-w-none rounded-3xl object-cover shadow-lg"
-           style="max-height: 650px;">
+    <div class="w-full flex justify-center items-center rounded-3xl shadow-lg bg-cover bg-center order-2 mt-4 md:mt-0"> 
+      <img src="images/aurora2.jpeg" alt="Girasole al tramonto"
+           class="w-full h-auto md:h-full rounded-3xl object-contain md:object-cover shadow-lg"
+           style="max-height: none;">
     </div>
 
   </main>
@@ -150,14 +142,9 @@
     <p class="mb-0.5">© Aurora Accademia Olistica – Aurora Abati</p>
     <p class="mb-1">Via della Gualderia, 11 - 10023 Chieri (TO) · P.IVA: 12830600016</p>
     <nav class="flex flex-wrap justify-center gap-x-3 gap-y-0.5">
-      <a href="cookie-policy.html" target="_blank" class="underline hover:text-stone-600">Cookie Policy</a>
-      <span aria-hidden="true">·</span>
-      <a href="privacy-policy.html" target="_blank" class="underline hover:text-stone-600">Privacy Policy</a>
-      <span aria-hidden="true">·</span>
       <a href="termini-e-condizioni.html" target="_blank" class="underline hover:text-stone-600">Termini e condizioni</a>
     </nav>
   </footer>
-
 
   <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
@@ -165,7 +152,7 @@
     n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
     (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '2457687');
-</script>
+  </script>
   <script src="optin-page.js"></script>
 
 </body>
