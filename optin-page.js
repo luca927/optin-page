@@ -31,11 +31,10 @@ function generateGuid() {
   });
 }
 
-function submitToMailerLite({ name, email, state }) {
+function submitToMailerLite({ name, email }) {
   const params = new URLSearchParams();
   params.append('fields[name]', name);
   params.append('fields[email]', email);
-  if (state) params.append('fields[state]', state);
   params.append('ml-submit', '1');
   params.append('anticsrf', 'true');
   params.append('ajax', '1');
@@ -53,7 +52,6 @@ form.addEventListener('submit', function (e) {
 
   const nome = document.getElementById('nome');
   const email = document.getElementById('email');
-  const genere = document.getElementById('genere');
   const privacy = document.getElementById('privacy');
 
   let valid = true;
@@ -78,7 +76,6 @@ form.addEventListener('submit', function (e) {
   submitToMailerLite({
     name: nome.value.trim(),
     email: email.value.trim(),
-    state: genere.value
   })
     .then(() => {
       window.location.href = 'grazie.html';
